@@ -1,24 +1,49 @@
 # NgxBreakpoints
+Breakpoint utilities
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+## Installation
+NgxBreakpoints requires on `@angular/cdk`
 
-## Code scaffolding
+```shell
+npm install @angular/cdk
+npm install ngx-breakpoints
+```
 
-Run `ng generate component component-name --project ngx-breakpoints` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-breakpoints`.
-> Note: Don't forget to add `--project ngx-breakpoints` or else it will be added to the default project in your `angular.json` file. 
+## Usage
 
-## Build
+```js
+import { NgxBreakpointConfig, NgxBreakpointsModule } from 'ngx-breakpoints';
 
-Run `ng build ngx-breakpoints` to build the project. The build artifacts will be stored in the `dist/` directory.
+const config: NgxBreakpointConfig = {
+  breakpoints: {
+    xs: '0',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
+    xxl: '1400px',
+  },
+  mobileBreakpoint: 'lg',
+};
 
-## Publishing
+@NgModule({
+  imports: [NgxBreakpointsModule.forRoot(config)],
+})
+export class AppModule {}
+```
 
-After building your library with `ng build ngx-breakpoints`, go to the dist folder `cd dist/ngx-breakpoints` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-breakpoints` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html
+<div [ngxBPDesktopAttr]="[['id', '1']]">Desktop Attr</div>
+<div ngxBPDesktopClass="one two">Desktop Class</div>
+<div [ngxBPDesktopClass]="['one', 'two']">Desktop Class</div>
+<div *ngxBPDesktopOnly>Desktop Only</div>
+<div [ngxBPMobileAttr]="[['id', '1']]">Mobile Attr</div>
+<div ngxBPMobileClass="one two">Mobile Class</div>
+<div [ngxBPMobileClass]="['one', 'two']">Mobile Class</div>
+<div *ngxBPMobileOnly>Mobile Only</div>
+<div>
+  <div ngxBPDesktopMaxWidth="420px" style="background-color: black; color: white;">Desktop Max Width</div>
+</div>
+<div *ngxBPGreaterOnly="'lg'"> Greater LG</div>
+<div *ngxBPLowerOnly="'lg'">Lower LG</div>
+```
