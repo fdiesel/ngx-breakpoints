@@ -8,7 +8,7 @@ import {
 } from "@angular/core";
 import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
-import { NgxBreakpoints } from "../breakpoint.type";
+import { NgxBreakpoints } from "../breakpoint.types";
 
 @Directive({
   selector: "[ngxBPGreaterOnly]",

@@ -2,7 +2,6 @@
  * Public API Surface of ngx-breakpoints
  */
 
-export * from "./lib/breakpoint.type";
 export * from "./lib/desktop/desktop-attr-list.directive";
 export * from "./lib/desktop/desktop-class.directive";
 export * from "./lib/desktop/desktop-max-width.directive";

@@ -2,7 +2,7 @@ import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { NgxBreakpointConfig, NgxBreakpoints } from "./breakpoint.type";
+import { NgxBreakpointConfig, NgxBreakpoints } from "./breakpoint.types";
 
 @Injectable({
   providedIn: "root",

@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { GreaterOnlyDirective, LowerOnlyDirective } from "../public-api";
-import { NgxBreakpointConfig } from "./breakpoint.type";
+import { NgxBreakpointConfig } from "./breakpoint.types";
 import { DesktopAttrListDirective } from "./desktop/desktop-attr-list.directive";
 import { DesktopClassDirective } from "./desktop/desktop-class.directive";
 import { DesktopMaxWidthDirective } from "./desktop/desktop-max-width.directive";
