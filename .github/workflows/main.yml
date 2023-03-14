@@ -17,6 +17,7 @@ jobs:
         uses: halvardssm/github-action-tag-release@1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./projects/${{ github.event.repository.name }}/package.json
 
   build-and-publish:
     runs-on: ubuntu-latest
