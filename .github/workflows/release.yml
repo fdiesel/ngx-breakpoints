@@ -10,5 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: justincy/github-action-npm-release@2.0.2
+      - uses: halvardssm/github-action-tag-release@v1
         id: release
+        with:
+         token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo 'Release created: ${{steps.version.outputs.release_created}}'
+          echo 'Release exists: ${{steps.version.outputs.release_exists}}'
+          echo 'Release tag: ${{steps.version.outputs.release_tag}}'
