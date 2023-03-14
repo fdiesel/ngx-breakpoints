@@ -21,6 +21,7 @@ jobs:
     needs: release
     if: ${{ needs.release.steps.tag_release.outputs.release_exists }} == 'false'
     steps:
+      - run: echo ${{ needs.release.steps.tag_release.outputs.release_exists }}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
