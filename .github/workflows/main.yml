@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Collect result
         id: result
-        run: echo "result=${{steps.release.outputs.release_created}}" >> "$GITHUB_OUTPUT"
+        run: echo ${{steps.tag_release.outputs.release_created}}
 
   build-and-publish:
     runs-on: ubuntu-latest
