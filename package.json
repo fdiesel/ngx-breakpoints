@@ -1,6 +1,6 @@
 {
   "name": "ngx-breakpoints",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Directives with breakpoint conditions",
   "keywords": [
     "angular",
@@ -13,6 +13,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/fdiesel/ngx-breakpoints"
+  },
+  "scripts": {
+    "build": "ng build"
   },
   "peerDependencies": {
     "@angular/cdk": "^15.2.0",
