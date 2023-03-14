@@ -1,6 +1,6 @@
 {
   "name": "ngx-breakpoints",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Directives with breakpoint conditions",
   "keywords": ["angular", "breakpoints", "directives"],
   "author": {

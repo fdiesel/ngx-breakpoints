@@ -5,12 +5,12 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
-} from '@angular/core';
-import { Subscription } from 'rxjs';
-import { BreakpointService } from './breakpoint.service';
+} from "@angular/core";
+import { Subscription } from "rxjs";
+import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: '[ngxBPDesktopAttr]',
+  selector: "[ngxBPDesktopAttr]",
 })
 export class DesktopAttrListDirective implements OnInit, OnDestroy {
   constructor(

@@ -4,27 +4,27 @@ import {
   OnInit,
   TemplateRef,
   ViewContainerRef,
-} from '@angular/core';
-import { Subscription } from 'rxjs';
-import { BreakpointService } from './breakpoint.service';
+} from "@angular/core";
+import { Subscription } from "rxjs";
+import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: '[ngxBPMobileOnly]',
+  selector: "[ngxBPDesktopOnly]",
 })
-export class MobileOnlyDirective implements OnInit, OnDestroy {
+export class DesktopOnlyDirective implements OnInit, OnDestroy {
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainerRef: ViewContainerRef,
     private breakpoints: BreakpointService
   ) {}
 
-  breakpoint$$?: Subscription;
+  breakpoints$$?: Subscription;
 
   ngOnInit(): void {
-    this.breakpoint$$ = this.breakpoints
-      .observeMobileView()
-      .subscribe((isMobileView) => {
-        if (isMobileView) {
+    this.breakpoints$$ = this.breakpoints
+      .observeDesktopView()
+      .subscribe((isDesktopView) => {
+        if (isDesktopView) {
           this.viewContainerRef.createEmbeddedView(this.templateRef);
         } else {
           this.viewContainerRef.clear();
@@ -33,6 +33,6 @@ export class MobileOnlyDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.breakpoint$$?.unsubscribe();
+    this.breakpoints$$?.unsubscribe();
   }
 }

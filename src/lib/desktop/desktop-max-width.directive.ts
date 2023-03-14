@@ -7,7 +7,7 @@ import {
   Renderer2,
 } from "@angular/core";
 import { Subscription } from "rxjs";
-import { BreakpointService } from "./breakpoint.service";
+import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
   selector: "[ngxBPDesktopMaxWidth]",

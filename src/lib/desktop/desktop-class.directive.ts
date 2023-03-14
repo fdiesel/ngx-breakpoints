@@ -5,14 +5,14 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
-} from '@angular/core';
-import { Subscription } from 'rxjs';
-import { BreakpointService } from './breakpoint.service';
+} from "@angular/core";
+import { Subscription } from "rxjs";
+import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: '[ngxBPMobileClass]',
+  selector: "[ngxBPDesktopClass]",
 })
-export class MobileClassDirective implements OnInit, OnDestroy {
+export class DesktopClassDirective implements OnInit, OnDestroy {
   constructor(
     private element: ElementRef,
     private renderer: Renderer2,
@@ -20,20 +20,20 @@ export class MobileClassDirective implements OnInit, OnDestroy {
   ) {}
 
   @Input()
-  ngxBPMobileClass: string | string[] = [];
+  ngxBPDesktopClass: string | string[] = [];
   breakpoints$$?: Subscription;
 
   ngOnInit(): void {
     let classList: string[];
-    if (typeof this.ngxBPMobileClass === 'string') {
-      classList = this.ngxBPMobileClass.split(' ');
-    } else if (typeof this.ngxBPMobileClass === 'object') {
-      classList = this.ngxBPMobileClass;
+    if (typeof this.ngxBPDesktopClass === "string") {
+      classList = this.ngxBPDesktopClass.split(" ");
+    } else if (typeof this.ngxBPDesktopClass === "object") {
+      classList = this.ngxBPDesktopClass;
     }
     this.breakpoints$$ = this.breakpoints
-      .observeMobileView()
-      .subscribe((isMobileView: boolean) => {
-        if (isMobileView) {
+      .observeDesktopView()
+      .subscribe((isDesktopView: boolean) => {
+        if (isDesktopView) {
           classList.forEach((cls) =>
             this.renderer.addClass(this.element.nativeElement, cls)
           );
