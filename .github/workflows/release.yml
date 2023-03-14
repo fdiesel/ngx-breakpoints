@@ -10,11 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: halvardssm/github-action-tag-release@1.0.0
-        id: release
-        with:
-         token: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
-          echo 'Release created: ${{steps.version.outputs.release_created}}'
-          echo 'Release exists: ${{steps.version.outputs.release_exists}}'
-          echo 'Release tag: ${{steps.version.outputs.release_tag}}'
+      - name: Release
+        uses: aynp/node-automatic-release@v1.2.0
