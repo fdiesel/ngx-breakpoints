@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: halvardssm/github-action-tag-release@v1
+      - uses: halvardssm/github-action-tag-release@1.0.0
         id: release
         with:
          token: ${{ secrets.GITHUB_TOKEN }}
