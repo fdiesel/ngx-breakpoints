@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Release
-        uses: aynp/node-automatic-release@v1.2.0
+      - name: Tag and Release
+        uses: halvardssm/github-action-tag-release@1.0.0
