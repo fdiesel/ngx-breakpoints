@@ -20,8 +20,6 @@ jobs:
 
   build-and-publish:
     runs-on: ubuntu-latest
-    needs:
-      - release
     if: release.outputs.release_created
     steps:
       - uses: actions/checkout@v3
