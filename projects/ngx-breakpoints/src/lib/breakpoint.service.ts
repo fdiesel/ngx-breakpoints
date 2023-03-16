@@ -17,8 +17,8 @@ export class BreakpointService {
     this.mobileBreakpoint = config.mobileBreakpoint;
   }
 
-  private breakpoints: NgxBreakpoints;
-  private mobileBreakpoint: keyof NgxBreakpoints;
+  private readonly breakpoints: NgxBreakpoints;
+  private readonly mobileBreakpoint: keyof NgxBreakpoints;
 
   public observeDesktopView(): Observable<boolean> {
     return this.observeGreater(this.mobileBreakpoint);
@@ -45,6 +45,6 @@ export class BreakpointService {
   }
 
   private maxWidth(size: keyof NgxBreakpoints): string {
-    return `(max-width: ${this.breakpoints[size]})`;
+    return `(max-width: calc(${this.breakpoints[size]} - 1px))`;
   }
 }
