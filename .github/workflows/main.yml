@@ -2,19 +2,18 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    branches: main
 
 jobs:
   release:
     runs-on: ubuntu-latest
     outputs:
-      created: ${{ steps.tag_release.outputs.release_created }}
+      created: ${{ steps.release.outputs.created }}
     steps:
       - uses: actions/checkout@v3
-      - name: Tag and Release
-        id: tag_release
-        uses: halvardssm/github-action-tag-release@1.0.0
+      - name: Release
+        id: release
+        uses: fdiesel/github-action-node-tag-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: ./projects/${{ github.event.repository.name }}/package.json
