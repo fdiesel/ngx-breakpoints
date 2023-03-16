@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: "[ngxBPDesktopAttr]",
+  selector: "[desktopAttr]",
 })
 export class DesktopAttrListDirective implements OnInit, OnDestroy {
   constructor(
@@ -20,7 +20,7 @@ export class DesktopAttrListDirective implements OnInit, OnDestroy {
   ) {}
 
   @Input()
-  ngxBPDesktopAttr: string[][] = [];
+  desktopAttr: string[][] = [];
   breakpoints$$?: Subscription;
 
   ngOnInit(): void {
@@ -28,11 +28,11 @@ export class DesktopAttrListDirective implements OnInit, OnDestroy {
       .observeDesktopView()
       .subscribe((isDesktopView: boolean) => {
         if (isDesktopView) {
-          this.ngxBPDesktopAttr.forEach((attr) =>
+          this.desktopAttr.forEach((attr) =>
             this.renderer.removeAttribute(this.element.nativeElement, attr[0])
           );
         } else {
-          this.ngxBPDesktopAttr.forEach((attr) =>
+          this.desktopAttr.forEach((attr) =>
             this.renderer.setAttribute(
               this.element.nativeElement,
               attr[0],

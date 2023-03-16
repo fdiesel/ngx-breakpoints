@@ -11,7 +11,7 @@ import { BreakpointService } from "../breakpoint.service";
 import { NgxBreakpoints } from "../breakpoint.types";
 
 @Directive({
-  selector: "[ngxBPGreaterOnly]",
+  selector: "[greaterOnly]",
 })
 export class GreaterOnlyDirective implements OnInit, OnDestroy {
   constructor(
@@ -21,12 +21,12 @@ export class GreaterOnlyDirective implements OnInit, OnDestroy {
   ) {}
 
   @Input()
-  ngxBPGreaterOnly!: keyof NgxBreakpoints;
+  greaterOnly!: keyof NgxBreakpoints;
   breakpoints$$?: Subscription;
 
   ngOnInit(): void {
     this.breakpoints$$ = this.breakpoints
-      .observeGreater(this.ngxBPGreaterOnly)
+      .observeGreater(this.greaterOnly)
       .subscribe((isGreater) => {
         if (isGreater) {
           this.viewContainerRef.createEmbeddedView(this.templateRef);

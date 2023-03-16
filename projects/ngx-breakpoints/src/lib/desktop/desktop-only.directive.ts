@@ -9,7 +9,7 @@ import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: "[ngxBPDesktopOnly]",
+  selector: "[desktopOnly]",
 })
 export class DesktopOnlyDirective implements OnInit, OnDestroy {
   constructor(

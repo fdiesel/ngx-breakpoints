@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: "[ngxBPMobileAttr]",
+  selector: "[mobileAttr]",
 })
 export class MobileAttrListDirective implements OnInit, OnDestroy {
   constructor(
@@ -20,7 +20,7 @@ export class MobileAttrListDirective implements OnInit, OnDestroy {
   ) {}
 
   @Input()
-  ngxBPMobileAttr: string[][] = [];
+  mobileAttr: string[][] = [];
   breakpoints$$?: Subscription;
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class MobileAttrListDirective implements OnInit, OnDestroy {
       .observeMobileView()
       .subscribe((isMobileView: boolean) => {
         if (isMobileView) {
-          this.ngxBPMobileAttr.forEach((attr) =>
+          this.mobileAttr.forEach((attr) =>
             this.renderer.setAttribute(
               this.element.nativeElement,
               attr[0],
@@ -36,7 +36,7 @@ export class MobileAttrListDirective implements OnInit, OnDestroy {
             )
           );
         } else {
-          this.ngxBPMobileAttr.forEach((attr) =>
+          this.mobileAttr.forEach((attr) =>
             this.renderer.removeAttribute(this.element.nativeElement, attr[0])
           );
         }

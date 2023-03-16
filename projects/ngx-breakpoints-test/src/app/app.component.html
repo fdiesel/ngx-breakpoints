@@ -1,13 +1,13 @@
-<div [ngxBPDesktopAttr]="[['id', '1']]">Desktop Attr</div>
-<div ngxBPDesktopClass="one two">Desktop Class</div>
-<div [ngxBPDesktopClass]="['one', 'two']">Desktop Class</div>
-<div *ngxBPDesktopOnly>Desktop Only</div>
-<div [ngxBPMobileAttr]="[['id', '1']]">Mobile Attr</div>
-<div ngxBPMobileClass="one two">Mobile Class</div>
-<div [ngxBPMobileClass]="['one', 'two']">Mobile Class</div>
-<div *ngxBPMobileOnly>Mobile Only</div>
+<div [desktopAttr]="[['id', '1']]">Desktop Attr</div>
+<div desktopClass="one two">Desktop Class</div>
+<div [desktopClass]="['one', 'two']">Desktop Class</div>
+<div *desktopOnly>Desktop Only</div>
+<div [mobileAttr]="[['id', '1']]">Mobile Attr</div>
+<div mobileClass="one two">Mobile Class</div>
+<div [mobileClass]="['one', 'two']">Mobile Class</div>
+<div *mobileOnly>Mobile Only</div>
 <div>
-  <div ngxBPDesktopMaxWidth="420px" style="background-color: black; color: white;">Desktop Max Width</div>
+  <div desktopMaxWidth="420px" style="background-color: black; color: white;">Desktop Max Width</div>
 </div>
-<div *ngxBPGreaterOnly="'lg'"> Greater LG</div>
-<div *ngxBPLowerOnly="'lg'">Lower LG</div>
+<div *greaterOnly="'lg'"> Greater LG</div>
+<div *lowerOnly="'lg'">Lower LG</div>

@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: "[ngxBPDesktopMaxWidth]",
+  selector: "[desktopMaxWidth]",
 })
 export class DesktopMaxWidthDirective implements OnInit, OnDestroy {
   constructor(
@@ -20,7 +20,7 @@ export class DesktopMaxWidthDirective implements OnInit, OnDestroy {
   ) {}
 
   @Input()
-  ngxBPDesktopMaxWidth?: string;
+  desktopMaxWidth?: string;
   breakpoints$$?: Subscription;
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class DesktopMaxWidthDirective implements OnInit, OnDestroy {
           this.renderer.setStyle(
             this.element.nativeElement,
             "max-width",
-            this.ngxBPDesktopMaxWidth
+            this.desktopMaxWidth
           );
         }
       });

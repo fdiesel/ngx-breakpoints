@@ -9,7 +9,7 @@ import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: "[ngxBPMobileOnly]",
+  selector: "[mobileOnly]",
 })
 export class MobileOnlyDirective implements OnInit, OnDestroy {
   constructor(

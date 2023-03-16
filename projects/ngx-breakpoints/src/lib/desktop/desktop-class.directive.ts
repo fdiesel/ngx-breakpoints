@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: "[ngxBPDesktopClass]",
+  selector: "[desktopClass]",
 })
 export class DesktopClassDirective implements OnInit, OnDestroy {
   constructor(
@@ -20,15 +20,15 @@ export class DesktopClassDirective implements OnInit, OnDestroy {
   ) {}
 
   @Input()
-  ngxBPDesktopClass: string | string[] = [];
+  desktopClass: string | string[] = [];
   breakpoints$$?: Subscription;
 
   ngOnInit(): void {
     let classList: string[];
-    if (typeof this.ngxBPDesktopClass === "string") {
-      classList = this.ngxBPDesktopClass.split(" ");
-    } else if (typeof this.ngxBPDesktopClass === "object") {
-      classList = this.ngxBPDesktopClass;
+    if (typeof this.desktopClass === "string") {
+      classList = this.desktopClass.split(" ");
+    } else if (typeof this.desktopClass === "object") {
+      classList = this.desktopClass;
     }
     this.breakpoints$$ = this.breakpoints
       .observeDesktopView()

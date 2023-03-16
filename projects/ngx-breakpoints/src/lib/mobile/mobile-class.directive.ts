@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
 import { BreakpointService } from "../breakpoint.service";
 
 @Directive({
-  selector: "[ngxBPMobileClass]",
+  selector: "[mobileClass]",
 })
 export class MobileClassDirective implements OnInit, OnDestroy {
   constructor(
@@ -20,15 +20,15 @@ export class MobileClassDirective implements OnInit, OnDestroy {
   ) {}
 
   @Input()
-  ngxBPMobileClass: string | string[] = [];
+  mobileClass: string | string[] = [];
   breakpoints$$?: Subscription;
 
   ngOnInit(): void {
     let classList: string[];
-    if (typeof this.ngxBPMobileClass === "string") {
-      classList = this.ngxBPMobileClass.split(" ");
-    } else if (typeof this.ngxBPMobileClass === "object") {
-      classList = this.ngxBPMobileClass;
+    if (typeof this.mobileClass === "string") {
+      classList = this.mobileClass.split(" ");
+    } else if (typeof this.mobileClass === "object") {
+      classList = this.mobileClass;
     }
     this.breakpoints$$ = this.breakpoints
       .observeMobileView()
