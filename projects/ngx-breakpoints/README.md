@@ -2,7 +2,7 @@
 Breakpoint utilities
 
 ## Installation
-NgxBreakpoints requires on `@angular/cdk`
+NgxBreakpoints requires `@angular/cdk`
 
 ```shell
 npm install @angular/cdk
